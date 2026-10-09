@@ -82,13 +82,15 @@ def get_sunlife():
     j = json.loads(curl("https://www.sunlife.com.hk/webservice/getmpforsofunddata",
                         data={"domainAndUserName": "hkportal", "sqlKey": "EXCHANGE_RATE",
                               "sqlParams": [datetime.date.today().isoformat()]}))
-    out, dt = {}, ""
+    out, dates = {}, []
     for x in j:
         code = {"US": "USD", "CA": "CAD", "GB": "GBP", "AU": "AUD", "CN": "CNY", "CH": "CHF",
                 "EU": "EUR", "SP": "SGD", "UA": "AED"}.get(x.get("CURRENCY"), x.get("CURRENCY_EN"))
         out[code] = fl(x.get("BID_RATE"))
-        dt = dt or (x.get("PUBLISH_DATE", "") or "")[:10]
-    return out, dt
+        pub = (x.get("PUBLISH_DATE", "") or "")[:10]
+        if pub:
+            dates.append(pub)
+    return out, (max(dates) if dates else "")
 
 
 CL_CODES = {"02": "USD", "03": "CNY", "05": "GBP", "06": "EUR", "10": "SGD", "11": "AUD", "12": "CAD", "13": "NZD"}
@@ -116,7 +118,12 @@ def get_yflife():
         row = m.get(k) or {}
         if "HK$" in row:
             out[v] = fl(row["HK$"])
-    return out, (j["data"].get("validUntil", "").replace("/", "-") or "")
+    vu = j["data"].get("validUntil", "") or ""
+    try:
+        dt = datetime.datetime.strptime(vu, "%m/%d/%Y").date().isoformat()
+    except Exception:
+        dt = ""
+    return out, dt
 
 
 SOURCES = [

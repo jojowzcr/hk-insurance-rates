@@ -23,7 +23,7 @@
         "EUR": 8.7849,
         "JPY": 0.0496
       },
-      "lastChecked": "2026-10-09 11:44 UTC"
+      "lastChecked": "2026-10-09 18:51"
     },
     "保诚 Prudential": {
       "zh": "保诚",
@@ -38,7 +38,7 @@
         "GBP": 10.675,
         "CNY": 1.2055
       },
-      "lastChecked": "2026-10-09 11:44 UTC"
+      "lastChecked": "2026-10-09 18:51"
     },
     "宏利 Manulife": {
       "zh": "宏利",
@@ -72,12 +72,12 @@
         "SGD": 6.1955,
         "USD": 7.85
       },
-      "lastChecked": "2026-10-09 11:44 UTC"
+      "lastChecked": "2026-10-09 18:51"
     },
     "永明 Sun Life": {
       "zh": "永明",
       "en": "Sun Life",
-      "date": "2007-04-02",
+      "date": "2026-10-09",
       "url": "https://www.sunlife.com.hk/zh-hant/client-support/exchange-rates/",
       "cur": {
         "HKD": 1,
@@ -91,7 +91,7 @@
         "SGD": 6.107,
         "AED": 2.132
       },
-      "lastChecked": "2026-10-09 11:44 UTC"
+      "lastChecked": "2026-10-09 18:51"
     },
     "周大福人寿 CTF Life": {
       "zh": "周大福人寿",
@@ -108,7 +108,7 @@
         "SGD": 6.148,
         "CAD": 5.549649
       },
-      "lastChecked": "2026-10-09 11:44 UTC"
+      "lastChecked": "2026-10-09 18:51"
     },
     "中国人寿(海外) China Life": {
       "zh": "中国人寿(海外)",
@@ -127,7 +127,7 @@
         "CAD": 5.5449,
         "NZD": 4.5237
       },
-      "lastChecked": "2026-10-09 11:45 UTC"
+      "lastChecked": "2026-10-09 18:51"
     },
     "中国太平(香港) China Taiping": {
       "zh": "中国太平(香港)",
@@ -158,12 +158,12 @@
         "SGD": 6.16005,
         "CNY": 1.17696
       },
-      "lastChecked": "2026-10-09 11:45 UTC"
+      "lastChecked": "2026-10-09 18:51"
     },
     "万通 YF Life": {
       "zh": "万通",
       "en": "YF Life",
-      "date": "10-09-2026",
+      "date": "2026-10-09",
       "url": "https://www.yflife.com/tc/support/exchange-rates/",
       "cur": {
         "HKD": 1,
@@ -177,7 +177,7 @@
         "CHF": 9.4385,
         "MOP": 0.972
       },
-      "lastChecked": "2026-10-09 11:45 UTC"
+      "lastChecked": "2026-10-09 18:51"
     }
   }
 }
