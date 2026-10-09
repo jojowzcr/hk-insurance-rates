@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="theme-color" content="#faf7f1">
+<title>香港保险公司汇率换算</title>
+<style>
+  :root{
+    --bg:#faf7f1; --card:#ffffff; --line:#ebe4d8; --text:#2c2a26;
+    --muted:#8b8478; --accent:#1a73e8; --up:#0f9d58; --warn:#8a6100; --soft:#f5f0e7;
+  }
+  *{box-sizing:border-box}
+  html{-webkit-text-size-adjust:100%}
+  body{margin:0;background:linear-gradient(180deg,#fffdfa,#faf7f1 320px);color:var(--text);
+    font-family:-apple-system,"PingFang SC","PingFang HK","Microsoft YaHei",sans-serif;
+    line-height:1.5;padding:22px 14px 48px}
+  .wrap{max-width:560px;margin:0 auto}
+  h1{font-size:20px;margin:0 0 4px;font-weight:700}
+  h2{font-size:16px;margin:0 0 12px;font-weight:600}
+  .sub{color:var(--muted);font-size:12.5px;margin-bottom:20px}
+  section{margin-bottom:30px}
+  .sec-tag{display:inline-block;font-size:11px;color:var(--accent);border:1px solid #d8e3fb;
+    background:#eef3fd;border-radius:99px;padding:2px 10px;margin-bottom:9px;font-weight:500}
+  .pairbar{display:flex;align-items:center;gap:10px;flex-wrap:wrap;background:var(--card);
+    border:1px solid var(--line);border-radius:12px;padding:11px 14px;margin-bottom:12px;
+    box-shadow:0 1px 2px rgba(80,70,50,.04)}
+  .pairbar .base{font-size:14.5px;font-weight:700}
+  .pill{background:#eef3fd;border:1px solid #d8e3fb;color:var(--accent);padding:2px 10px;
+    border-radius:99px;font-size:11.5px;font-weight:500}
+  .pill.warn{color:var(--warn);border-color:#f0dcb0;background:#fdf6e6}
+  .tbl{background:var(--card);border:1px solid var(--line);border-radius:12px;overflow:hidden;
+    box-shadow:0 1px 3px rgba(80,70,50,.05)}
+  .head,.row{display:grid;grid-template-columns:34% 20% 22% 24%;align-items:center;padding:11px 14px}
+  .head{background:var(--soft);color:var(--muted);font-size:12px;font-weight:600;
+    border-bottom:1px solid var(--line)}
+  .row{font-size:14px}
+  .row+.row{border-top:1px solid var(--line)}
+  .row:hover{background:#fbf9f4}
+  .co{font-weight:600}
+  .co small{display:block;color:var(--muted);font-weight:400;font-size:11px}
+  .rate{font-variant-numeric:tabular-nums;font-weight:700;color:var(--up);font-size:15px}
+  .rate small{color:var(--muted);font-weight:400;font-size:10.5px;display:block}
+  .time{color:var(--muted);font-variant-numeric:tabular-nums;font-size:12.5px}
+  a.link{color:var(--accent);text-decoration:none;font-size:13px;font-weight:500}
+  a.link::after{content:" ↗";font-size:11px;color:var(--muted)}
+  .calc{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:16px;
+    box-shadow:0 1px 3px rgba(80,70,50,.05)}
+  .grid{display:grid;grid-template-columns:1fr;gap:12px;margin-bottom:14px}
+  .field label{display:block;font-size:12px;color:var(--muted);margin-bottom:5px;font-weight:500}
+  select,input{width:100%;background:#fbf9f5;color:var(--text);border:1px solid var(--line);
+    border-radius:9px;padding:11px 12px;font-size:15px;outline:none;font-family:inherit;appearance:none}
+  select{padding-right:34px;background-image:linear-gradient(45deg,transparent 50%,var(--muted) 50%),
+    linear-gradient(135deg,var(--muted) 50%,transparent 50%);
+    background-position:calc(100% - 18px) 50%,calc(100% - 13px) 50%;background-size:5px 5px,5px 5px;
+    background-repeat:no-repeat}
+  select:focus,input:focus{border-color:var(--accent);box-shadow:0 0 0 3px rgba(26,115,232,.12)}
+  .amounts{display:grid;grid-template-columns:1fr;gap:10px;align-items:center}
+  .amtbox{position:relative}
+  .amtbox .cur{position:absolute;top:50%;right:12px;transform:translateY(-50%);font-size:12px;
+    color:var(--muted);pointer-events:none;font-weight:600}
+  .amtbox input{font-size:20px;font-weight:700;padding-right:60px;font-variant-numeric:tabular-nums;background:#fff}
+  .amtbox input.out{color:var(--up);background:#f7fdf9}
+  .swap{width:42px;height:42px;border-radius:50%;border:1px solid var(--line);background:var(--soft);
+    color:var(--accent);cursor:pointer;font-size:16px;justify-self:center;display:flex;align-items:center;justify-content:center}
+  .rateline{margin-top:14px;font-size:13px;color:var(--muted)}
+  .rateline b{color:var(--text);font-variant-numeric:tabular-nums}
+  .dateline{margin-top:4px;font-size:12px;color:var(--muted)}
+  .genbtn{margin-top:14px;width:100%;background:var(--accent);color:#fff;border:none;border-radius:11px;
+    padding:14px;font-size:15px;font-weight:600;cursor:pointer;font-family:inherit}
+  .genbtn:active{transform:translateY(1px)}
+  #imgwrap{display:none;margin-top:16px;text-align:center}
+  #imgwrap.show{display:block}
+  #imgwrap img{width:100%;max-width:330px;border-radius:16px;border:1px solid var(--line);
+    box-shadow:0 6px 20px rgba(80,70,50,.12)}
+  .hint{color:var(--muted);font-size:12px;margin-top:10px}
+  .dlbtn{display:inline-block;margin-top:10px;color:var(--accent);font-size:13px;font-weight:600;
+    text-decoration:none;border:1px solid #d8e3fb;background:#eef3fd;padding:9px 18px;border-radius:9px}
+  .foot{color:var(--muted);font-size:11.5px;margin-top:22px;line-height:1.7}
+  .foot b{color:#6b6459;font-weight:600}
+  .disc{margin-top:14px;padding:12px 14px;border:1px dashed var(--line);border-radius:10px;
+    color:var(--muted);font-size:11px;background:#fdfcf9}
+  .banner{padding:10px 14px;border-radius:10px;font-size:13px;margin-bottom:14px;display:none}
+  .banner.err{display:block;background:#fdf0ee;border:1px solid #f2c8c2;color:#a4342a}
+  @media(max-width:560px){
+    .head{display:none}
+    .row{grid-template-columns:1fr auto;row-gap:3px;column-gap:10px;padding:13px 14px}
+    .row .co{grid-row:1;grid-column:1}
+    .row .rate{grid-row:1;grid-column:2;text-align:right}
+    .row .time{grid-row:2;grid-column:1}
+    .row .link{grid-row:2;grid-column:2;text-align:right}
+  }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <h1>香港保险公司汇率换算</h1>
+  <div class="sub" id="sub">覆盖 10 家香港主要保险公司 · 加载中…</div>
+  <div class="banner err" id="err"></div>
+
+  <section>
+    <span class="sec-tag">第一部分</span>
+    <h2>港元 / 美元 汇率列表(1 USD = ? HKD)</h2>
+    <div class="pairbar">
+      <span class="base">1 USD = ? HKD</span>
+      <span class="pill" id="countPill">10 家</span>
+      <span class="pill warn">中国人寿为買/賣两价,暂取其一</span>
+    </div>
+    <div class="tbl">
+      <div class="head"><div>公司</div><div>汇率 (HKD)</div><div>时间</div><div>链接</div></div>
+      <div id="rows"></div>
+    </div>
+  </section>
+
+  <section>
+    <span class="sec-tag">第二部分</span>
+    <h2>汇率计算器</h2>
+    <div class="calc">
+      <div class="grid">
+        <div class="field"><label>公司</label><select id="selCo"></select></div>
+        <div class="field"><label>A 货币</label><select id="selA"></select></div>
+        <div class="field"><label>B 货币</label><select id="selB"></select></div>
+      </div>
+      <div class="amounts">
+        <div class="amtbox"><input id="inA" type="text" inputmode="decimal" value="1000"><span class="cur" id="tagA">USD</span></div>
+        <button class="swap" id="swap" title="互换 A / B">⇄</button>
+        <div class="amtbox"><input id="inB" class="out" type="text" inputmode="decimal"><span class="cur" id="tagB">HKD</span></div>
+      </div>
+      <div class="rateline" id="rateline">—</div>
+      <div class="dateline" id="dateline"></div>
+      <button class="genbtn" id="gen">生成图片</button>
+      <div id="imgwrap"><img id="outimg" alt="汇率换算图片"><div class="hint">手机上长按图片即可保存</div><br>
+        <a class="dlbtn" id="dl" download="汇率换算.png">下载图片</a></div>
+    </div>
+  </section>
+
+  <div class="foot" id="foot"></div>
+  <div class="disc">
+    免责声明:以上汇率与换算结果仅供一般参考,并非任何保险产品的缴费或赔付承诺。实际适用汇率以各保险公司于款项收取/处理当日公布者为准,公司保留随时调整汇率之权利。
+  </div>
+</div>
+
+<script>
+const ZH={HKD:"港元",USD:"美元",CNY:"人民币",AUD:"澳元",CAD:"加元",CHF:"瑞士法郎",GBP:"英镑",
+  PHP:"披索",MOP:"澳门币",TWD:"新台币",SGD:"新加坡元",NZD:"新西兰元",EUR:"欧元",JPY:"日元",AED:"迪拉姆"};
+const $=id=>document.getElementById(id);
+const fmtRate=n=>n>=1?n.toFixed(4):n.toFixed(6);
+const parseNum=s=>{const n=parseFloat(String(s).replace(/,/g,""));return isFinite(n)?n:NaN;};
+const fmtAmt=n=>(Math.round(n*100)/100).toLocaleString("en-US",{maximumFractionDigits:2});
+const zhDate=s=>{const[y,m,d]=s.split("-").map(Number);return `${y}年${m}月${d}日`;};
+
+let DATA={};                 // 公司数据
+const coSel=$("selCo"),aSel=$("selA"),bSel=$("selB"),inA=$("inA"),inB=$("inB");
+
+function rate(){const d=DATA[coSel.value].cur;return d[aSel.value]/d[bSel.value];}
+function fillCur(sel,keep){const list=Object.keys(DATA[coSel.value].cur);
+  sel.innerHTML=list.map(c=>`<option value="${c}">${c} · ${ZH[c]||c}</option>`).join("");
+  if(list.includes(keep))sel.value=keep;}
+function recalc(from){const d=DATA[coSel.value],r=rate();
+  if(from==="B"){const b=parseNum(inB.value);if(isFinite(b))inA.value=fmtAmt(b/r);}
+  else{const a=parseNum(inA.value);if(isFinite(a))inB.value=fmtAmt(a*r);}
+  $("rateline").innerHTML=`1 ${aSel.value} = <b>${fmtRate(r)}</b> ${bSel.value}`;
+  $("dateline").textContent=`数据来源:${d.zh} ${d.en} · 数据日期 ${d.date}`;
+  $("tagA").textContent=aSel.value;$("tagB").textContent=bSel.value;}
+
+function render(){
+  const entries=Object.entries(DATA);
+  $("countPill").textContent=`${entries.length} 家`;
+  $("rows").innerHTML=entries.map(([k,d])=>{
+    const usd=d.cur.USD?fmtRate(d.cur.USD):"—";
+    const extra=d.note?`<small>${d.note}</small>`:"";
+    return `<div class="row"><div class="cell co">${d.zh}<small>${d.en}</small></div>
+      <div class="cell rate">${usd}${extra}</div><div class="cell time">${d.date}</div>
+      <div class="cell link"><a class="link" href="${d.url}" target="_blank" rel="noopener">官网汇率页</a></div></div>`;
+  }).join("");
+  coSel.innerHTML=entries.map(([k])=>`<option value="${k}">${k}</option>`).join("");
+  coSel.value="友邦 AIA";fillCur(aSel,"USD");fillCur(bSel,"HKD");
+  aSel.value="USD";bSel.value="HKD";inA.value="1000";recalc("A");
+}
+
+coSel.addEventListener("change",()=>{fillCur(aSel,aSel.value);fillCur(bSel,bSel.value);recalc("A");});
+aSel.addEventListener("change",()=>recalc("A"));
+bSel.addEventListener("change",()=>recalc("A"));
+inA.addEventListener("input",()=>recalc("A"));
+inB.addEventListener("input",()=>recalc("B"));
+$("swap").addEventListener("click",()=>{const a=aSel.value;aSel.value=bSel.value;bSel.value=a;recalc("A");});
+
+/* 生成竖屏图片 */
+const FONT='"PingFang SC","PingFang HK","Microsoft YaHei",-apple-system,sans-serif';
+function roundRect(g,x,y,w,h,r){g.beginPath();g.moveTo(x+r,y);g.arcTo(x+w,y,x+w,y+h,r);
+  g.arcTo(x+w,y+h,x,y+h,r);g.arcTo(x,y+h,x,y,r);g.arcTo(x,y,x+w,y,r);g.closePath();}
+function fit(g,t,w,maxW,size){g.font=`${w} ${size}px ${FONT}`;let s=size;
+  while(g.measureText(t).width>maxW&&s>26){s-=4;g.font=`${w} ${s}px ${FONT}`;}return s;}
+function drawCard(){
+  const d=DATA[coSel.value],r=rate(),W=1080,H=1350,cw=W/2,inner=W-280;
+  const c=document.createElement("canvas");c.width=W;c.height=H;const g=c.getContext("2d");
+  g.fillStyle="#faf7f1";g.fillRect(0,0,W,H);
+  roundRect(g,60,60,W-120,H-120,48);g.fillStyle="#fff";g.fill();g.lineWidth=2;g.strokeStyle="#ebe4d8";g.stroke();
+  g.textAlign="center";
+  g.fillStyle="#8b8478";g.font=`500 30px ${FONT}`;g.fillText("香港保险公司汇率",cw,190);
+  g.fillStyle="#2c2a26";fit(g,d.zh,"bold",inner,84);g.fillText(d.zh,cw,320);
+  g.fillStyle="#a9a294";g.font=`500 32px ${FONT}`;g.fillText(d.en,cw,372);
+  g.fillStyle="#8b8478";g.font=`500 42px ${FONT}`;g.fillText(zhDate(d.date),cw,470);
+  g.strokeStyle="#ebe4d8";g.lineWidth=2;g.beginPath();g.moveTo(140,530);g.lineTo(W-140,530);g.stroke();
+  const aTxt=`${fmtAmt(parseNum(inA.value)||0)} ${aSel.value}`,bTxt=`${inB.value||"—"} ${bSel.value}`;
+  g.fillStyle="#8b8478";g.font=`500 28px ${FONT}`;g.fillText("A 货币金额",cw,618);
+  g.fillStyle="#2c2a26";fit(g,aTxt,"bold",inner,92);g.fillText(aTxt,cw,712);
+  g.fillStyle="#1a73e8";g.font=`bold 60px ${FONT}`;g.fillText("↓",cw,800);
+  g.fillStyle="#8b8478";g.font=`500 28px ${FONT}`;g.fillText("B 货币金额",cw,872);
+  g.fillStyle="#0f9d58";fit(g,bTxt,"bold",inner,92);g.fillText(bTxt,cw,966);
+  g.fillStyle="#8b8478";g.font=`500 36px ${FONT}`;g.fillText(`1 ${aSel.value} = ${fmtRate(r)} ${bSel.value}`,cw,1064);
+  g.fillStyle="#a9a294";g.font=`400 26px ${FONT}`;
+  g.fillText(`数据来源:${d.zh} ${d.en} · 官网汇率页`,cw,1170);
+  g.fillText("仅供参考,以保险公司当日公布为准",cw,1212);
+  return c.toDataURL("image/png");
+}
+$("gen").addEventListener("click",()=>{const url=drawCard();$("outimg").src=url;$("dl").href=url;
+  $("dl").download=`${DATA[coSel.value].zh}_${aSel.value}to${bSel.value}_${DATA[coSel.value].date}.png`;
+  $("imgwrap").classList.add("show");$("imgwrap").scrollIntoView({behavior:"smooth",block:"nearest"});});
+
+/* 载入数据(同源,带时间戳防缓存) */
+(async()=>{
+  try{
+    const res=await fetch("rates.json?v="+Date.now(),{cache:"no-store"});
+    const book=await res.json();
+    DATA=book.companies;
+    const gen=book.generatedAt||"";
+    $("sub").textContent=`覆盖 ${Object.keys(DATA).length} 家香港主要保险公司`;
+    $("foot").innerHTML=`<b>数据时间:</b>各来源标注的生效/更新日 · <b>数据版本:</b>${gen}(每日自动刷新)`;
+    render();
+  }catch(e){
+    $("err").textContent="数据加载失败,请刷新重试。("+e.message+")";
+  }
+})();
+</script>
+</body>
+</html>
