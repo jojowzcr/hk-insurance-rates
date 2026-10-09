@@ -82,6 +82,12 @@
   .foot b{color:#6b6459;font-weight:600}
   .disc{margin-top:14px;padding:12px 14px;border:1px dashed var(--line);border-radius:10px;
     color:var(--muted);font-size:11px;background:#fdfcf9}
+  .qrbox{margin-top:18px;display:flex;align-items:center;gap:14px;background:var(--card);
+    border:1px solid var(--line);border-radius:12px;padding:14px;box-shadow:0 1px 3px rgba(80,70,50,.05)}
+  .qrbox img{width:96px;height:96px;flex:none;border-radius:8px;background:#fff}
+  .qrtext{color:var(--muted);font-size:12px;line-height:1.65}
+  .qrtext b{color:var(--text);font-weight:600}
+  .qrtext span{color:var(--accent);font-size:11px;word-break:break-all}
   .banner{padding:10px 14px;border-radius:10px;font-size:13px;margin-bottom:14px;display:none}
   .banner.err{display:block;background:#fdf0ee;border:1px solid #f2c8c2;color:#a4342a}
   @media(max-width:560px){
@@ -137,6 +143,11 @@
     </div>
   </section>
 
+  <div class="qrbox">
+    <img id="qr" alt="扫码打开本页" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAyAAAAMgAQMAAADhvpQrAAAABlBMVEX///8AAABVwtN+AAAACXBIWXMAAA7EAAAOxAGVKw4bAAADWUlEQVR4nO3cPXbiMBQGUOVQULIElsLS8NJYipeQkiJnNAEZ/diCSUhSxHO/yjhP76rUkayEICIi8i2J/Qx1wRjCNr0+XV+9pKddrn4NYXOnEQQCgUAgEAhkhcgptNkkZB/jW0buzOfP++tjRoZZoy0EAoFAIBAIZLXIYsV5t/7y9Cc97TrIPjcaIRAIBAKBQCCQH0AW9TmX1of8BIFAIBAIBAKBxNsydXOravMSZ4FAIBAIBAKBQH4CadLWh3rkKe+mHq6tF4OaQCAQCAQCgUBWivSSkPLZ6FT/3vpcXzxqd1N7gUAgEAgEAoFAnkAepow8pxeH/BQy8tVAIBAIBAKBQH4XEmdZrDjDdcF67pdeFqzDlbusaI/XFe2mGQSBQCAQCAQCgTyHnOqN0ZjqQ383NeXeZ6OxHh5636ZCIBAIBAKBQH4/Em5X3S8Z8hWkIVcmZFFaZlZyrEtngUAgEAgEAoFAPoHk+rb1PNOytkFK67IWHh/vpkIgEAgEAoFAfj/SjIyd+ph3U1PrbV1akJIyKEAgEAgEAoFAIE8jod4Y3dWn9m3ibQX8zKE/BAKBQCAQCGSVyHFW3yYsV7Qh3L41vWS4/v7XMhUCgUAgEAgEAvk0Eju3m2L/3zg1wwsS8vDzogoCgUAgEAgE8vuRuPxsdJOe9jX3IE3r0F2mQiAQCAQCgUAgX0N2ndZjfbvp3Dn0bzItoMfq0B8CgUAgEAgEsjqkpHANUkq3aeP1MDuPf0tPpXSsmkIgEAgEAoFAIM8gu/ntplRfPiA91xN5yTObVsWvnT3Ufe/QHwKBQCAQCASyFmTKMTcdrlXTxmiTaeShc/EopR0EgUAgEAgEAoE8gdzPAsl/KYf+5VJ9GdQGAoFAIBAIBLI2ZP5yylAjY21vU8EpH93HvJs6dA7xIRAIBAKBQCCQ55BTaDPVL2YRbv8ItHwfUJAp08xC5iAQCAQCgUAg60Q+tOJMPz56Hj/eu4QPgUAgEAgEAoF8C9K0Pj889A/1lagIgUAgEAgEAvkfkXr8tJu6yOu8dTMzCAQCgUAgEAjkOaRJQd7CMtvUoAw6Xn+X0k2a2R4CgUAgEAgEslqkl4LEfLSeUvZV4/wD0iFUXcdqYhAIBAKBQCAQyOcQERGRL+cvouKbLBbmoFUAAAAASUVORK5CYII=">
+    <div class="qrtext"><b>📱 扫码打开 / 分享本页</b><br>
+      <span>https://jojowzcr.github.io/hk-insurance-rates/</span></div>
+  </div>
   <div class="foot" id="foot"></div>
   <div class="disc">
     免责声明:以上汇率与换算结果仅供一般参考,并非任何保险产品的缴费或赔付承诺。实际适用汇率以各保险公司于款项收取/处理当日公布者为准,公司保留随时调整汇率之权利。
