@@ -34,9 +34,11 @@
   .head,.row{display:grid;grid-template-columns:34% 20% 22% 24%;align-items:center;padding:11px 14px}
   .head{background:var(--soft);color:var(--muted);font-size:12px;font-weight:600;
     border-bottom:1px solid var(--line)}
-  .row{font-size:14px}
+  .row{font-size:14px;cursor:pointer}
   .row+.row{border-top:1px solid var(--line)}
   .row:hover{background:#fbf9f4}
+  .row.sel{background:#eef3fd;box-shadow:inset 3px 0 0 var(--accent)}
+  .row:active{background:#e6eefc}
   .co{font-weight:600}
   .co small{display:block;color:var(--muted);font-weight:400;font-size:11px}
   .rate{font-variant-numeric:tabular-nums;font-weight:700;color:var(--up);font-size:15px}
@@ -105,6 +107,7 @@
       <span class="base">1 USD = ? HKD</span>
       <span class="pill" id="countPill">10 家</span>
       <span class="pill warn">中国人寿为買/賣两价,暂取其一</span>
+      <span class="pill" style="background:#f0f7ee;border-color:#cfe6c8;color:#2e7d32">点公司名 → 同步到下方计算器</span>
     </div>
     <div class="tbl">
       <div class="head"><div>公司</div><div>汇率 (HKD)</div><div>时间</div><div>链接</div></div>
@@ -169,16 +172,27 @@ function render(){
   $("rows").innerHTML=entries.map(([k,d])=>{
     const usd=d.cur.USD?fmtRate(d.cur.USD):"—";
     const extra=d.note?`<small>${d.note}</small>`:"";
-    return `<div class="row"><div class="cell co">${d.zh}<small>${d.en}</small></div>
+    return `<div class="row" data-co="${k}" role="button" tabindex="0"><div class="cell co">${d.zh}<small>${d.en}</small></div>
       <div class="cell rate">${usd}${extra}</div><div class="cell time">${d.date}</div>
       <div class="cell link"><a class="link" href="${d.url}" target="_blank" rel="noopener">官网汇率页</a></div></div>`;
   }).join("");
   coSel.innerHTML=entries.map(([k])=>`<option value="${k}">${k}</option>`).join("");
   coSel.value="友邦 AIA";fillCur(aSel,"USD");fillCur(bSel,"HKD");
   aSel.value="USD";bSel.value="HKD";inA.value="1000";recalc("A");
+  markSel();
+}
+function markSel(){document.querySelectorAll("#rows .row").forEach(r=>r.classList.toggle("sel", r.dataset.co===coSel.value));}
+function pick(key){
+  if(!DATA[key]) return;
+  coSel.value=key;
+  fillCur(aSel,aSel.value);fillCur(bSel,bSel.value);
+  recalc("A");markSel();
+  const c=document.querySelector(".calc");if(c)c.scrollIntoView({behavior:"smooth",block:"center"});
 }
 
-coSel.addEventListener("change",()=>{fillCur(aSel,aSel.value);fillCur(bSel,bSel.value);recalc("A");});
+coSel.addEventListener("change",()=>{fillCur(aSel,aSel.value);fillCur(bSel,bSel.value);recalc("A");markSel();});
+$("rows").addEventListener("click",e=>{const r=e.target.closest(".row");if(!r)return;if(e.target.closest("a"))return;pick(r.dataset.co);});
+$("rows").addEventListener("keydown",e=>{const r=e.target.closest(".row");if(r&&(e.key==="Enter"||e.key===" ")){e.preventDefault();pick(r.dataset.co);}});
 aSel.addEventListener("change",()=>recalc("A"));
 bSel.addEventListener("change",()=>recalc("A"));
 inA.addEventListener("input",()=>recalc("A"));
