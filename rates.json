@@ -1,44 +1,44 @@
 {
-  "generatedAt": "2026-10-13",
+  "generatedAt": "2026-10-14",
   "note": "演示快照:各公司当日实测汇率,单位=1 单位外币兑港元(HKD)。正式版由定时抓取任务覆盖。",
   "companies": {
     "友邦 AIA": {
       "zh": "友邦",
       "en": "AIA",
-      "date": "2026-10-13",
+      "date": "2026-10-14",
       "url": "https://www.aia.com.hk/zh-hk/help-and-support/individuals/exchange-rates.html",
       "cur": {
         "HKD": 1,
-        "USD": 7.8522,
-        "AUD": 5.4761,
-        "CNY": 1.1757,
-        "CAD": 5.5038,
-        "CHF": 9.4351,
-        "GBP": 10.395,
-        "PHP": 0.1251,
+        "USD": 7.8524,
+        "AUD": 5.4668,
+        "CNY": 1.1755,
+        "CAD": 5.5018,
+        "CHF": 9.4206,
+        "GBP": 10.3854,
+        "PHP": 0.125,
         "MOP": 0.9704,
-        "TWD": 0.2459,
-        "SGD": 6.1322,
-        "NZD": 4.3974,
-        "EUR": 8.7917,
-        "JPY": 0.0495
+        "TWD": 0.244,
+        "SGD": 6.1306,
+        "NZD": 4.3963,
+        "EUR": 8.7805,
+        "JPY": 0.0496
       },
-      "lastChecked": "2026-10-13 01:31 UTC"
+      "lastChecked": "2026-10-14 06:07 UTC"
     },
     "保诚 Prudential": {
       "zh": "保诚",
       "en": "Prudential",
-      "date": "2026-10-13",
+      "date": "2026-10-14",
       "url": "https://www.prudential.com.hk/en/claims-and-services/policy-payment/exchange-rates/",
       "cur": {
         "HKD": 1,
-        "USD": 7.8554,
-        "AUD": 5.6492,
-        "CAD": 5.6695,
-        "GBP": 10.7076,
-        "CNY": 1.2076
+        "USD": 7.8551,
+        "AUD": 5.6199,
+        "CAD": 5.6625,
+        "GBP": 10.6821,
+        "CNY": 1.2072
       },
-      "lastChecked": "2026-10-13 01:31 UTC"
+      "lastChecked": "2026-10-14 06:07 UTC"
     },
     "宏利 Manulife": {
       "zh": "宏利",
@@ -60,56 +60,56 @@
     "富卫 FWD": {
       "zh": "富卫",
       "en": "FWD",
-      "date": "2026-10-13",
+      "date": "2026-10-14",
       "url": "https://www.fwd.com.hk/zh/support/exchange-rate/",
       "cur": {
         "HKD": 1,
-        "AUD": 5.5625,
-        "CAD": 5.584,
-        "EUR": 8.8975,
-        "GBP": 10.465,
-        "CNY": 1.185,
-        "SGD": 6.19,
+        "AUD": 5.5395,
+        "CAD": 5.5765,
+        "EUR": 8.8665,
+        "GBP": 10.45,
+        "CNY": 1.1845,
+        "SGD": 6.1895,
         "USD": 7.85
       },
-      "lastChecked": "2026-10-13 01:31 UTC"
+      "lastChecked": "2026-10-14 06:07 UTC"
     },
     "永明 Sun Life": {
       "zh": "永明",
       "en": "Sun Life",
-      "date": "2026-10-12",
+      "date": "2026-10-14",
       "url": "https://www.sunlife.com.hk/zh-hant/client-support/exchange-rates/",
       "cur": {
         "HKD": 1,
         "USD": 7.8,
-        "CAD": 5.463,
-        "GBP": 10.32,
+        "CAD": 5.48,
+        "GBP": 10.332,
         "AUD": 5.445,
-        "CNY": 1.164,
-        "CHF": 9.401,
-        "EUR": 8.738,
-        "SGD": 6.111,
+        "CNY": 1.166,
+        "CHF": 9.37,
+        "EUR": 8.731,
+        "SGD": 6.112,
         "AED": 2.132
       },
-      "lastChecked": "2026-10-13 01:31 UTC",
+      "lastChecked": "2026-10-14 06:07 UTC",
       "note": "美元汇率为永明长期固定值"
     },
     "周大福人寿 CTF Life": {
       "zh": "周大福人寿",
       "en": "CTF Life",
-      "date": "2026-10-13",
+      "date": "2026-10-14",
       "url": "https://www.ctflife.com.hk/tc/support/exchange-rate",
       "cur": {
         "HKD": 1,
         "USD": 7.863821,
-        "CNY": 1.179359,
-        "GBP": 10.465095,
-        "AUD": 5.517066,
-        "EUR": 8.856493,
-        "SGD": 6.155,
-        "CAD": 5.545963
+        "CNY": 1.179184,
+        "GBP": 10.454705,
+        "AUD": 5.508044,
+        "EUR": 8.844832,
+        "SGD": 6.152,
+        "CAD": 5.543642
       },
-      "lastChecked": "2026-10-13 01:31 UTC"
+      "lastChecked": "2026-10-14 06:07 UTC"
     },
     "中国人寿(海外) China Life": {
       "zh": "中国人寿(海外)",
@@ -150,35 +150,35 @@
       "cur": {
         "HKD": 1,
         "USD": 7.85088,
-        "AUD": 5.51464,
-        "EUR": 8.84752,
-        "CAD": 5.53423,
-        "GBP": 10.451,
-        "CHF": 9.51142,
-        "NZD": 4.42964,
-        "SGD": 6.16507,
-        "CNY": 1.17866
+        "AUD": 5.51413,
+        "EUR": 8.83727,
+        "CAD": 5.55212,
+        "GBP": 10.46044,
+        "CHF": 9.47454,
+        "NZD": 4.43356,
+        "SGD": 6.16115,
+        "CNY": 1.17917
       },
-      "lastChecked": "2026-10-13 01:31 UTC"
+      "lastChecked": "2026-10-14 06:07 UTC"
     },
     "万通 YF Life": {
       "zh": "万通",
       "en": "YF Life",
-      "date": "2026-10-13",
+      "date": "2026-10-14",
       "url": "https://www.yflife.com/tc/support/exchange-rates/",
       "cur": {
         "HKD": 1,
         "USD": 7.8574,
-        "CNY": 1.1757,
-        "EUR": 8.8177,
-        "GBP": 10.4283,
-        "AUD": 5.4946,
-        "CAD": 5.5268,
-        "SGD": 6.1445,
-        "CHF": 9.4616,
+        "CNY": 1.1758,
+        "EUR": 8.8088,
+        "GBP": 10.4298,
+        "AUD": 5.4965,
+        "CAD": 5.5275,
+        "SGD": 6.1454,
+        "CHF": 9.4565,
         "MOP": 0.972
       },
-      "lastChecked": "2026-10-13 01:31 UTC"
+      "lastChecked": "2026-10-14 06:07 UTC"
     }
   }
 }
