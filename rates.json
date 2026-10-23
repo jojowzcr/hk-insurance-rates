@@ -23,7 +23,7 @@
         "EUR": 8.8097,
         "JPY": 0.0499
       },
-      "lastChecked": "2026-10-23 01:58 UTC",
+      "lastChecked": "2026-10-23 02:03 UTC",
       "dateSource": "official_effective"
     },
     "保诚 Prudential": {
@@ -39,7 +39,7 @@
         "GBP": 10.8244,
         "CNY": 1.2105
       },
-      "lastChecked": "2026-10-23 01:58 UTC",
+      "lastChecked": "2026-10-23 02:03 UTC",
       "dateSource": "official_effective"
     },
     "宏利 Manulife": {
@@ -57,7 +57,7 @@
         "SGD": 6.1886,
         "MOP": 0.9699
       },
-      "lastChecked": "2026-10-23 01:58 UTC",
+      "lastChecked": "2026-10-23 02:04 UTC",
       "dateSource": "official_effective",
       "source": "https://www.manulife.com.hk/zh-hk/individual/services/premium-exchange-rate.html",
       "fetchChannel": "jina-reader"
@@ -77,7 +77,7 @@
         "SGD": 6.205,
         "USD": 7.85
       },
-      "lastChecked": "2026-10-23 01:58 UTC",
+      "lastChecked": "2026-10-23 02:03 UTC",
       "dateSource": "official_effective"
     },
     "永明 Sun Life": {
@@ -97,7 +97,7 @@
         "SGD": 6.124,
         "AED": 2.132
       },
-      "lastChecked": "2026-10-23 01:58 UTC",
+      "lastChecked": "2026-10-23 02:03 UTC",
       "note": "美元汇率为永明长期固定值",
       "dateSource": "official_effective"
     },
@@ -116,7 +116,7 @@
         "SGD": 6.164,
         "CAD": 5.636695
       },
-      "lastChecked": "2026-10-23 01:58 UTC",
+      "lastChecked": "2026-10-23 02:04 UTC",
       "dateSource": "official_effective"
     },
     "中国人寿(海外) China Life": {
@@ -136,7 +136,7 @@
         "CAD": 5.6257,
         "NZD": 4.553
       },
-      "lastChecked": "2026-10-23 01:58 UTC",
+      "lastChecked": "2026-10-23 02:04 UTC",
       "dateSource": "official_effective"
     },
     "中国太平(香港) China Taiping": {
@@ -149,7 +149,7 @@
         "USD": 7.8736,
         "CNY": 1.1797
       },
-      "lastChecked": "2026-10-23 01:58 UTC",
+      "lastChecked": "2026-10-23 02:04 UTC",
       "dateSource": "official_effective",
       "source": "https://tplhk.cntaiping.com/customer-dhl/",
       "fetchChannel": "jina-reader"
@@ -171,7 +171,7 @@
         "SGD": 6.1712,
         "CNY": 1.18088
       },
-      "lastChecked": "2026-10-23 01:58 UTC",
+      "lastChecked": "2026-10-23 02:04 UTC",
       "dateSource": "official_effective"
     },
     "万通 YF Life": {
@@ -191,7 +191,7 @@
         "CHF": 9.589,
         "MOP": 0.972
       },
-      "lastChecked": "2026-10-23 01:58 UTC",
+      "lastChecked": "2026-10-23 02:04 UTC",
       "dateSource": "official_effective"
     }
   }
