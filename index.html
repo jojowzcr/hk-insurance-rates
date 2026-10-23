@@ -38,6 +38,8 @@
   .row+.row{border-top:1px solid var(--line)}
   .row:hover{background:#fbf9f4}
   .row.sel{background:#eef3fd;box-shadow:inset 3px 0 0 var(--accent)}
+  .row.stale{opacity:.55}
+  .row.stale .rate{color:#b42318}
   .row:active{background:#e6eefc}
   .co{font-weight:600}
   .co small{display:block;color:var(--muted);font-weight:400;font-size:11px}
@@ -164,6 +166,10 @@ const fmtAmt=n=>(Math.round(n*100)/100).toLocaleString("en-US",{maximumFractionD
 const zhDate=s=>{const[y,m,d]=s.split("-").map(Number);return `${y}年${m}月${d}日`;};
 
 let DATA={};                 // 公司数据
+
+// 2026-10 修复:超过 48 小时未更新的公司显示过期标识并置灰
+const STALE_DAYS=2;
+const isStale=d=>{ if(!d||!d.date) return true; const t=Date.parse(d.date+"T00:00:00"); return (Date.now()-t)/86400000>STALE_DAYS; };
 const coSel=$("selCo"),aSel=$("selA"),bSel=$("selB"),inA=$("inA"),inB=$("inB");
 
 function rate(){const d=DATA[coSel.value].cur;return d[aSel.value]/d[bSel.value];}
@@ -188,7 +194,8 @@ function render(){
       <div class="cell link"><a class="link" href="${d.url}" target="_blank" rel="noopener">官网汇率页</a></div></div>`;
   }).join("");
   coSel.innerHTML=entries.map(([k])=>`<option value="${k}">${k}</option>`).join("");
-  coSel.value="友邦 AIA";fillCur(aSel,"USD");fillCur(bSel,"HKD");
+  coSel.value="友邦 AIA";
+  document.querySelectorAll("#rows .row").forEach(r=>{const d=DATA[r.dataset.co];if(isStale(d))r.classList.add("stale");});fillCur(aSel,"USD");fillCur(bSel,"HKD");
   aSel.value="USD";bSel.value="HKD";inA.value="1000";recalc("A");
   markSel();
 }
@@ -249,6 +256,7 @@ $("gen").addEventListener("click",()=>{const url=drawCard();$("outimg").src=url;
     const res=await fetch("rates.json?v="+Date.now(),{cache:"no-store"});
     const book=await res.json();
     DATA=book.companies;
+    Object.values(DATA).forEach(d=>{ if(isStale(d)) d.note=(d.note?d.note+" ":"")+"⚠ 数据未更新(截至 "+(d.date||"未知")+")"; });
     const gen=book.generatedAt||"";
     $("sub").textContent=`覆盖 ${Object.keys(DATA).length} 家香港主要保险公司`;
     $("foot").innerHTML=`<b>数据时间:</b>各来源标注的生效/更新日 · <b>数据版本:</b>${gen}(每日自动刷新)`;
