@@ -5,6 +5,7 @@ on:
   workflow_dispatch: {}
 permissions:
   contents: write
+  issues: write
 jobs:
   update:
     runs-on: ubuntu-latest
@@ -13,14 +14,15 @@ jobs:
       - uses: actions/setup-python@v5
         with:
           python-version: "3.12"
-      - name: Fetch rates (HTTP)
+
+      # 8 家可程序化来源(HTTP)。脚本内置时效/完整性校验,失败即 exit 1。
+      - name: Fetch rates (HTTP, 8 companies)
         run: python3 fetch_rates.py
-      - name: Fetch rates (headless browser)
-        continue-on-error: true
-        run: |
-          python3 -m pip install --quiet playwright
-          python3 -m playwright install --with-deps chromium
-          python3 fetch_browser_rates.py
+
+      # 宏利/中国太平:官网对机房 IP 有 WAF(403/空页),经 r.jina.ai 渲染代理取数。
+      - name: Fetch rates (Manulife/China Taiping via reader proxy)
+        run: python3 fetch_browser_rates.py
+
       - name: Commit changes
         run: |
           git config user.name "github-actions[bot]"
@@ -32,3 +34,11 @@ jobs:
           else
             echo "no changes"
           fi
+
+      # 失败通知:开 issue(同时 GitHub 默认会给仓库所有者发失败邮件)
+      - name: Open issue on failure
+        if: failure()
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          gh issue create --repo ${{ github.repository }}             --title "Rates update failed $(date -u +%F)"             --body "Workflow run: ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}"
