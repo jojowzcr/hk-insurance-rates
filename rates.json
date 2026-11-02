@@ -1,35 +1,35 @@
 {
-  "generatedAt": "2026-11-01",
+  "generatedAt": "2026-11-02",
   "note": "数据来源:各保险公司官网汇率页(每日自动抓取)。单位 = 1 单位外币兑港元(HKD);日期以官网标注的生效/更新日为准。",
   "companies": {
     "友邦 AIA": {
       "zh": "友邦",
       "en": "AIA",
-      "date": "2026-11-01",
+      "date": "2026-11-02",
       "url": "https://www.aia.com.hk/zh-hk/help-and-support/individuals/exchange-rates.html",
       "cur": {
         "HKD": 1,
-        "USD": 7.8506,
-        "AUD": 5.5264,
-        "CNY": 1.1811,
-        "CAD": 5.6077,
-        "CHF": 9.4736,
-        "GBP": 10.4549,
-        "PHP": 0.1229,
+        "USD": 7.8499,
+        "AUD": 5.5098,
+        "CNY": 1.1819,
+        "CAD": 5.6168,
+        "CHF": 9.5442,
+        "GBP": 10.5162,
+        "PHP": 0.1231,
         "MOP": 0.9704,
-        "TWD": 0.2411,
-        "SGD": 6.1257,
-        "NZD": 4.4095,
-        "EUR": 8.7432,
-        "JPY": 0.0497
+        "TWD": 0.2405,
+        "SGD": 6.1395,
+        "NZD": 4.4197,
+        "EUR": 8.7793,
+        "JPY": 0.0498
       },
-      "lastChecked": "2026-11-01 07:30 UTC",
+      "lastChecked": "2026-11-02 07:39 UTC",
       "dateSource": "official_effective"
     },
     "保诚 Prudential": {
       "zh": "保诚",
       "en": "Prudential",
-      "date": "2026-11-01",
+      "date": "2026-11-02",
       "url": "https://www.prudential.com.hk/en/claims-and-services/policy-payment/exchange-rates/",
       "cur": {
         "HKD": 1,
@@ -39,13 +39,13 @@
         "GBP": 10.8199,
         "CNY": 1.2133
       },
-      "lastChecked": "2026-11-01 07:30 UTC",
+      "lastChecked": "2026-11-02 07:39 UTC",
       "dateSource": "official_effective"
     },
     "宏利 Manulife": {
       "zh": "宏利",
       "en": "Manulife",
-      "date": "2026-11-01",
+      "date": "2026-11-02",
       "url": "https://www.manulife.com.hk/zh-hk/individual/services/premium-exchange-rate.html",
       "cur": {
         "HKD": 1,
@@ -57,7 +57,7 @@
         "SGD": 6.1691,
         "MOP": 0.9699
       },
-      "lastChecked": "2026-11-01 07:30 UTC",
+      "lastChecked": "2026-11-02 07:39 UTC",
       "dateSource": "official_effective",
       "source": "https://www.manulife.com.hk/zh-hk/individual/services/premium-exchange-rate.html",
       "fetchChannel": "jina-reader"
@@ -65,46 +65,46 @@
     "富卫 FWD": {
       "zh": "富卫",
       "en": "FWD",
-      "date": "2026-11-01",
+      "date": "2026-11-02",
       "url": "https://www.fwd.com.hk/zh/support/exchange-rate/",
       "cur": {
         "HKD": 1,
-        "AUD": 5.6125,
-        "CAD": 5.689,
-        "EUR": 8.86,
-        "GBP": 10.535,
-        "CNY": 1.1905,
-        "SGD": 6.1865,
+        "AUD": 5.588,
+        "CAD": 5.6915,
+        "EUR": 8.8855,
+        "GBP": 10.58,
+        "CNY": 1.191,
+        "SGD": 6.1935,
         "USD": 7.85
       },
-      "lastChecked": "2026-11-01 07:30 UTC",
+      "lastChecked": "2026-11-02 07:39 UTC",
       "dateSource": "official_effective"
     },
     "永明 Sun Life": {
       "zh": "永明",
       "en": "Sun Life",
-      "date": "2026-10-30",
+      "date": "2026-11-02",
       "url": "https://www.sunlife.com.hk/zh-hant/client-support/exchange-rates/",
       "cur": {
         "HKD": 1,
         "USD": 7.8,
-        "CAD": 5.566,
-        "GBP": 10.421,
-        "AUD": 5.473,
+        "CAD": 5.572,
+        "GBP": 10.426,
+        "AUD": 5.474,
         "CNY": 1.17,
-        "CHF": 9.468,
-        "EUR": 8.711,
-        "SGD": 6.11,
-        "AED": 2.132
+        "CHF": 9.452,
+        "EUR": 8.692,
+        "SGD": 6.113,
+        "AED": 2.131
       },
-      "lastChecked": "2026-11-01 07:30 UTC",
+      "lastChecked": "2026-11-02 07:39 UTC",
       "note": "美元汇率为永明长期固定值",
       "dateSource": "official_effective"
     },
     "周大福人寿 CTF Life": {
       "zh": "周大福人寿",
       "en": "CTF Life",
-      "date": "2026-11-01",
+      "date": "2026-11-02",
       "url": "https://www.ctflife.com.hk/tc/support/exchange-rate",
       "cur": {
         "HKD": 1,
@@ -116,13 +116,13 @@
         "SGD": 6.162,
         "CAD": 5.659678
       },
-      "lastChecked": "2026-11-01 07:30 UTC",
+      "lastChecked": "2026-11-02 07:39 UTC",
       "dateSource": "official_effective"
     },
     "中国人寿(海外) China Life": {
       "zh": "中国人寿(海外)",
       "en": "China Life",
-      "date": "2026-11-01",
+      "date": "2026-11-02",
       "url": "https://www.chinalife.com.hk/customer-service/payment-withdrawal/premium-exchange-rates",
       "note": "该校有買/賣两价,此处取買(較高)价",
       "cur": {
@@ -136,20 +136,20 @@
         "CAD": 5.6594,
         "NZD": 4.5636
       },
-      "lastChecked": "2026-11-01 07:30 UTC",
+      "lastChecked": "2026-11-02 07:39 UTC",
       "dateSource": "official_effective"
     },
     "中国太平(香港) China Taiping": {
       "zh": "中国太平(香港)",
       "en": "China Taiping",
-      "date": "2026-11-01",
+      "date": "2026-11-02",
       "url": "https://tplhk.cntaiping.com/customer-dhl/",
       "cur": {
         "HKD": 1,
         "USD": 7.8736,
         "CNY": 1.1904
       },
-      "lastChecked": "2026-11-01 07:30 UTC",
+      "lastChecked": "2026-11-02 07:39 UTC",
       "dateSource": "official_effective",
       "source": "https://tplhk.cntaiping.com/customer-dhl/",
       "fetchChannel": "jina-reader"
@@ -157,21 +157,21 @@
     "安盛 AXA": {
       "zh": "安盛",
       "en": "AXA",
-      "date": "2026-11-01",
+      "date": "2026-11-02",
       "url": "https://www.axa.com.hk/en/exchange-rate",
       "cur": {
         "HKD": 1,
-        "USD": 7.85088,
-        "AUD": 5.53805,
-        "EUR": 8.82822,
-        "CAD": 5.64368,
-        "GBP": 10.56114,
-        "CHF": 9.60117,
-        "NZD": 4.43778,
+        "USD": 7.85408,
+        "AUD": 5.54207,
+        "EUR": 8.80501,
+        "CAD": 5.64498,
+        "GBP": 10.55732,
+        "CHF": 9.56087,
+        "NZD": 4.43466,
         "SGD": 6.16608,
-        "CNY": 1.18389
+        "CNY": 1.1854
       },
-      "lastChecked": "2026-11-01 07:30 UTC",
+      "lastChecked": "2026-11-02 07:39 UTC",
       "dateSource": "official_effective"
     },
     "万通 YF Life": {
@@ -191,7 +191,7 @@
         "CHF": 9.5698,
         "MOP": 0.972
       },
-      "lastChecked": "2026-11-01 07:30 UTC",
+      "lastChecked": "2026-11-02 07:39 UTC",
       "dateSource": "official_effective"
     }
   }
